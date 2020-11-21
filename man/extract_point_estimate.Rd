@@ -2,15 +2,14 @@
 % Please edit documentation in R/convrg_func.R
 \name{extract_point_estimate}
 \alias{extract_point_estimate}
-\title{@encoding UTF-8
-Extract point estimates of pi parameters}
+\title{Extract point estimates of pi parameters}
 \usage{
 extract_point_estimate(modelOut, countData, treatments)
 }
 \arguments{
 \item{modelOut}{Fitted Stan object}
 
-\item{countData}{The count data modelled. Must be in exactly the same format.}
+\item{countData}{The count data modelled.}
 
 \item{treatments}{An integer describing how many treatment groups were modelled.}
 }
@@ -21,9 +20,21 @@ A dataframe specifying point estimates for each feature in each treatment group.
 Takes the mean value of pi parameters for each feature and separately by treatment group.
 }
 \examples{
+#simulate an OTU table
 com_demo <-matrix(0, nrow = 10, ncol = 10)
 com_demo[1:5,] <- c(rep(3,5), rep(7,5)) #Alternates 3 and 7
 com_demo[6:10,] <- c(rep(7,5), rep(3,5)) #Reverses alternation
-out <- varInf(com_demo,starts = c(1,6), ends=c(5,10))
+fornames <- NA
+for(i in 1:length(com_demo[1,])){
+fornames[i] <- paste("otu_", i, sep = "")
+}
+sample_vec <- NA
+for(i in 1:length(com_demo[,1])){
+sample_vec[i] <- paste("sample", i, sep = "_")
+}
+com_demo <- data.frame(sample_vec, com_demo)
+names(com_demo) <- c("sample", fornames)
+
+out <- cnvrg_VI(com_demo,starts = c(1,6), ends=c(5,10))
 extract_point_estimate(modelOut = out, countData = com_demo, treatments = 2)
 }

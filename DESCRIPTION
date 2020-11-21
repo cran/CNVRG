@@ -1,6 +1,6 @@
 Package: CNVRG
 Title: Dirichlet-Multinomial Modelling of Relative Abundance Data
-Version: 0.1
+Version: 0.2
 Authors@R: 
     c(person(given = "Joshua",
            family = "Harrison",
@@ -27,16 +27,17 @@ LazyData: true
 RoxygenNote: 7.1.1
 Biarch: true
 Depends: R (>= 3.4.0)
-Imports: methods, Rcpp (>= 0.12.0), rstan (>= 2.18.1), vegan
+Imports: methods, Rcpp (>= 0.12.0), rstan (>= 2.18.1), vegan,
+        rstantools (>= 2.1.1)
 LinkingTo: BH (>= 1.66.0), Rcpp (>= 0.12.0), RcppEigen (>= 0.3.3.3.0),
         RcppParallel (>= 5.0.1), rstan (>= 2.18.1), StanHeaders (>=
         2.18.0)
 SystemRequirements: GNU make
 Repository: CRAN
 NeedsCompilation: yes
-Packaged: 2020-09-08 18:54:42 UTC; joshuaharrison
+Packaged: 2020-11-21 14:38:30 UTC; joshuaharrison
 Author: Joshua Harrison [aut, cre] (<https://orcid.org/0000-0003-2524-0273>),
   Vivaswat Shastry [aut] (<https://orcid.org/0000-0002-7294-5607>),
   W. John Calder [aut] (<https://orcid.org/0000-0002-8923-1803>),
   C. Alex Buerkle [aut] (<https://orcid.org/0000-0003-4222-8858>)
-Date/Publication: 2020-09-16 09:40:06 UTC
+Date/Publication: 2020-11-21 15:10:02 UTC
